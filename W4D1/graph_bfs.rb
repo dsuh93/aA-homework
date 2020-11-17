@@ -5,18 +5,26 @@ class GraphNode
         self.val = val
         self.neighbors = []
     end
+
+    def add_neighbors(node)
+        self.neighbors << node
+    end
 end
 
 def bfs(starting_node, target_value)
-    visited = Set.new()
-    return nil if (visited.include?(starting_node.val))
     queue = [starting_node]
+    visited = Set.new()
+
     until queue.empty?
         el = queue.shift
-        visited.add(el.val)
-        return el if el.val == target_value
-        el.neighbors.each {|neighbor| queue << neighbor}
+        unless visited.include?(el.val)
+            return el.val if el.val == target_value
+            visited.add(el)
+            queue += el.neighbors
+        end
     end
+    
+    return nil
 end
 
 a = GraphNode.new('a')
