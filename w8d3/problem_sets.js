@@ -9,7 +9,23 @@
 // > madLib('make', 'best', 'guac');
 // "We shall MAKE the BEST GUAC."
 
-function madLib(verb, adj, noun) {
-    console.log(`We shall ${verb.prototype.toUpperCase} the ${adj.prototype.toUpperCase}
-    ${noun.prototype.toUpperCase}.`)
+// function madLib(verb, adj, noun) {
+//     console.log(`We shall ${verb.toUpperCase()} the ${adj.toUpperCase()}
+//     ${noun.toUpperCase()}.`);
+// }
+
+// madLib('make', 'best', 'guac');
+
+// function isSubstring(searchString, subString){
+//     return searchString.split(" ").includes(subString)
+// }
+
+function fizzBuzz(array){
+    let newArray = [];
+    array.forEach(ele => {
+        if((ele % 3 === 0 && ele % 5 !== 0) || (ele % 3 !== 0 && ele % 5 === 0)){
+            newArray.push(ele);
+        }
+    });
+    return newArray
 }
